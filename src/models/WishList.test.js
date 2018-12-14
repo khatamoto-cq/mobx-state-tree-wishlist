@@ -1,3 +1,4 @@
+import {getSnapshot} from "mobx-state-tree";
 import {WishListItem, WishList} from "./WishList";
 
 it("can create a instance of a model", () => {
@@ -37,4 +38,12 @@ it("can add new items", () => {
   expect(list.items[0].name).toBe("Chesterton")
   list.items[0].changeName("Book of G.K Chesterton")
   expect(list.items[0].name).toBe("Book of G.K Chesterton")
+
+  expect(getSnapshot(list)).toEqual({
+    items: [{
+      "name": "Book of G.K Chesterton",
+      "price": 10,
+      "image": ""
+    }]
+  })
 })
