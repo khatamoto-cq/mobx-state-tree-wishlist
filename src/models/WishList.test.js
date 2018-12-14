@@ -39,11 +39,5 @@ it("can add new items", () => {
   list.items[0].changeName("Book of G.K Chesterton")
   expect(list.items[0].name).toBe("Book of G.K Chesterton")
 
-  expect(getSnapshot(list)).toEqual({
-    items: [{
-      "name": "Book of G.K Chesterton",
-      "price": 10,
-      "image": ""
-    }]
-  })
+  expect(getSnapshot(list)).toMatchSnapshot()
 })
