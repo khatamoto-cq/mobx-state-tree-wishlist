@@ -1,3 +1,4 @@
+import {getSnapshot, onSnapshot, onPatch} from "mobx-state-tree";
 import {WishListItem, WishList} from "./WishList";
 
 it("can create a instance of a model", () => {
@@ -28,13 +29,17 @@ it("can create a wishlist", () => {
 
 it("can add new items", () => {
   const list = WishList.create()
+  const patches = []
+  onSnapshot(list, patche => {
+    patches.push(patche)
+  })
+
   list.add(WishListItem.create({
     name: "Chesterton",
     price: 10
   }))
 
-  expect(list.items.length).toBe(1)
-  expect(list.items[0].name).toBe("Chesterton")
   list.items[0].changeName("Book of G.K Chesterton")
-  expect(list.items[0].name).toBe("Book of G.K Chesterton")
+
+  expect(patches).toMatchSnapshot()
 })
