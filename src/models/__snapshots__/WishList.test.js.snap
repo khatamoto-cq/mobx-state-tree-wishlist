@@ -11,3 +11,26 @@ Object {
   ],
 }
 `;
+
+exports[`can add new items 2`] = `
+Array [
+  Object {
+    "items": Array [
+      Object {
+        "image": "",
+        "name": "Chesterton",
+        "price": 10,
+      },
+    ],
+  },
+  Object {
+    "items": Array [
+      Object {
+        "image": "",
+        "name": "Book of G.K Chesterton",
+        "price": 10,
+      },
+    ],
+  },
+]
+`;
