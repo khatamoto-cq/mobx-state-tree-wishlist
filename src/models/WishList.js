@@ -1,0 +1,17 @@
+import { types } from "mobx-state-tree"
+
+const data = {
+  "name": "Chronicles of Narnia Box Set - C.S. Lewis",
+  "price": 28.73,
+  "image": "https://images-na.ssl-images-amazon.com/images/I/51a7xaMpneL._SX329_BO1,204,203,200_.jpg"
+}
+
+export const WishListItem = types.model({
+  name: types.string,
+  price: types.number,
+  image: ""
+})
+
+export const WishList = types.model({
+  items: types.optional(types.array(WishListItem), [])
+})
