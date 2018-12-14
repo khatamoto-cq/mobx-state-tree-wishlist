@@ -33,3 +33,8 @@ export const WishList = types
       self.items.push(item)
     }
   }))
+  .views(self => ({
+    get totalPrice() {
+      return self.items.reduce((sum, entry) => sum + entry.price, 0)
+    }
+  }))
