@@ -19,8 +19,9 @@ class WishListItemView extends Component {
           <h3>{item.name}</h3>
           <span>{item.price}</span>
           <span>
-          <button onClick={this.onToggleEdit}>✎</button>
-        </span>
+            <button onClick={this.onToggleEdit}>✏</button>
+            <button onClick={item.remove}>❎</button>
+          </span>
         </li>
       )
     )
@@ -31,7 +32,7 @@ class WishListItemView extends Component {
       <li className="item">
         <WishListItemEdit item={this.state.clone} />
         <button onClick={this.onSaveEdit}>💢</button>
-        <button onClick={this.onCancelEdit}>✖</button>
+        <button onClick={this.onCancelEdit}>❎</button>
       </li>
     )
   }
