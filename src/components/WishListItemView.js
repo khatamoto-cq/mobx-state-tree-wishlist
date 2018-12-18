@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { observer } from "mobx-react";
-import WishListItemEdit from './WishListItemEdit'
 import { clone, getSnapshot, applySnapshot } from 'mobx-state-tree'
+import WishListItemEdit from './WishListItemEdit'
 
 class WishListItemView extends Component {
   constructor() {
@@ -10,20 +10,18 @@ class WishListItemView extends Component {
   }
   render() {
     const { item } = this.props
-    return (
-      this.state.isEditing ? (
+    return this.state.isEditing ? (
         this.renderEditable()
-      ) : (
-        <li className="item">
-          {item.image && <img src={item.image} />}
-          <h3>{item.name}</h3>
-          <span>{item.price}</span>
-          <span>
-            <button onClick={this.onToggleEdit}>✏</button>
-            <button onClick={item.remove}>❎</button>
-          </span>
-        </li>
-      )
+    ) : (
+      <li className="item">
+        {item.image && <img src={item.image} />}
+        <h3>{item.name}</h3>
+        <span>{item.price}</span>
+        <span>
+          <button onClick={this.onToggleEdit}>✏</button>
+          <button onClick={item.remove}>❎</button>
+        </span>
+      </li>
     )
   }
 
@@ -31,7 +29,7 @@ class WishListItemView extends Component {
     return (
       <li className="item">
         <WishListItemEdit item={this.state.clone} />
-        <button onClick={this.onSaveEdit}>💢</button>
+        <button onClick={this.onSaveEdit}>💾</button>
         <button onClick={this.onCancelEdit}>❎</button>
       </li>
     )
